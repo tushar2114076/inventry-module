@@ -1,0 +1,21 @@
+services:
+  # 1. Backend Service
+  - type: web
+    name: inventory-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: PORT
+        value: 8000
+
+  # 2. Frontend Service
+  - type: web
+    name: inventory-frontend
+    env: docker
+    dockerfilePath: ./frontend/Dockerfile.prod
+    dockerContext: ./frontend
+    envVars:
+      # This points your frontend to the backend's Render URL
+      - key: VITE_API_URL
+        value: https://inventory-backend.onrender.com/api

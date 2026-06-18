@@ -1,7 +1,7 @@
 // Thin API client for the FastAPI backend.
 // In dev, /api is proxied to http://localhost:8000 (see vite.config.js).
 
-const BASE = '/api'
+const BASE = import.meta.env.VITE_API_URL || '/api'
 
 async function request(path, options = {}) {
   const res = await fetch(BASE + path, {
