@@ -3,6 +3,7 @@ services:
   - type: web
     name: inventory-backend
     env: docker
+    rootDir: Inverntory_managnment
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     envVars:
@@ -13,6 +14,7 @@ services:
   - type: web
     name: inventory-frontend
     env: docker
+    rootDir: Inverntory_managnment
     dockerfilePath: ./frontend/Dockerfile.prod
     dockerContext: ./frontend
     envVars:
